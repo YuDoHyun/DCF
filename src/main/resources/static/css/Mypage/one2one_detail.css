@@ -1,0 +1,85 @@
+*{
+    margin:0; padding:0; box-sizing: border-box;
+}
+#page-nav-wrap{
+    width: 100%;
+    border-bottom: 1px solid #6d6d6d;
+}
+#page-nav{
+    margin: 0 auto;
+    width: 1080px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #6d6d6d;  
+}
+.onetooneDetail {
+    width: 640px;
+    margin: 0 auto;
+}
+.onetoone-top {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #151515;
+}
+.onetoone-table {
+    width: 640px;
+    border-left: 1px solid #292929;
+    border-right: 1px solid #292929;
+    border-bottom: 1px solid #292929;
+    border-spacing: 0px;
+    border-collapse: separate;
+    margin-bottom: 35px;
+}
+.onetoone-table tr>td{
+    border-top:1px solid #292929;
+}
+
+.onetoone-td1 {
+    width: 80px;
+    height: 40px;
+    background-color: #ebebeb;
+    color: #505050;
+    text-align: center;
+    font-size: 16px;
+}
+.onetoone-td-content, .onetoone-td-img {
+    height: 100px;
+}
+.onetoone-td-content2 {
+    height: 150px;
+}
+.onetoone-td2 {
+    color: #292929;
+    font-size: 16px;
+    padding-left: 15px;
+}
+.onetoone-tdname {
+    width: 320px;
+}
+.onetoone-button {
+    display: flex;
+    justify-content: center;
+}
+.onetoone-button1, .onetoone-button2 {
+    width: 80px;
+    height: 35px;
+    background-color: white;
+    color: #292929;
+    border: 1px solid #292929;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 50px;
+    transition: 0.2s;
+}
+.onetoone-button1 {
+    margin-right: 10px;
+}
+.onetoone-button1:hover, .onetoone-button2:hover {
+    background-color: #fee469;
+    border: none;
+}
+.onetoone-td {
+    width: 560px;
+}

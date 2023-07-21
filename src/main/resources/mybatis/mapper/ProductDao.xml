@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL 끝에 ; 세미콜론을 넣지 마세요! -->
+
+<mapper namespace="com.study.springboot.dao.IProductDao">
+
+	<select id="sample_list_dog" resultType="com.study.springboot.dto.ProductDto">
+	SELECT * FROM DCF_PRODUCT WHERE product_sample = 1 AND product_animal = 0
+	</select>
+	<select id="sample_list_cat" resultType="com.study.springboot.dto.ProductDto">
+	SELECT * FROM DCF_PRODUCT WHERE product_sample = 1 AND product_animal = 1
+	</select>
+	<select id="list" resultType="com.study.springboot.dto.ProductDto">
+	  		SELECT * FROM
+	    (
+	        SELECT 
+	            ROWNUM AS RNUM, dcf_product.*
+	        FROM
+	            dcf_product
+	        ORDER BY product_idx desc
+	    )
+		WHERE RNUM BETWEEN #{param1} AND #{param2}
+	</select>
+	<select id="product_list_snack" resultType="com.study.springboot.dto.ProductDto">
+	SELECT * FROM DCF_PRODUCT WHERE product_category_type=1
+	</select>
+	<select id="product_list_food" resultType="com.study.springboot.dto.ProductDto">
+	SELECT * FROM DCF_PRODUCT WHERE product_category_type=0
+	</select>
+	<select id="product_action" resultType="com.study.springboot.dto.ProductDto">
+	SELECT * FROM DCF_PRODUCT WHERE product_idx=#{param1}
+	</select>
+	
+	<delete id="product_delete">
+	  DELETE FROM dcf_product WHERE product_idx=#{ param1 }
+	</delete>
+	
+	<select id="search" resultType="com.study.springboot.dto.ProductDto">
+	  SELECT * FROM dcf_product WHERE product_name LIKE '%'||#{ param1 }||'%'
+	</select>
+	
+	<select id="newlist_dog" resultType="com.study.springboot.dto.ProductDto">
+	  SELECT * FROM dcf_product WHERE product_new=1 AND product_animal = 0
+	</select>
+	
+	<select id="newlist_cat" resultType="com.study.springboot.dto.ProductDto">
+	  SELECT * FROM dcf_product WHERE product_new=1 AND product_animal = 1
+	</select>
+	
+	<select id="product_list_dog" resultType="com.study.springboot.dto.ProductDto">
+	      SELECT * FROM (
+        		SELECT temp_table.*, ROWNUM as rnum FROM (
+    				SELECT * FROM dcf_product WHERE product_animal = 0
+               ) temp_table ) WHERE RNUM BETWEEN #{param1} AND #{param2}
+	</select>
+	
+	<select id="product_list_dog_food" resultType="com.study.springboot.dto.ProductDto">
+	  SELECT * FROM (
+        		SELECT temp_table.*, ROWNUM as rnum FROM (
+    				SELECT * FROM dcf_product WHERE product_animal = 0 AND product_category_type = 0
+               ) temp_table ) WHERE RNUM BETWEEN #{param1} AND #{param2}
+	</select>
+	
+	<select id="product_list_dog_snack" resultType="com.study.springboot.dto.ProductDto">
+	  	  SELECT * FROM (
+        		SELECT temp_table.*, ROWNUM as rnum FROM (
+    				SELECT * FROM dcf_product WHERE product_animal = 0 AND product_category_type = 1
+               ) temp_table ) WHERE RNUM BETWEEN #{param1} AND #{param2}
+	  
+	</select>
+	
+	<select id="product_list_best" resultType="com.study.springboot.dto.ProductDto">
+	  SELECT * FROM dcf_product WHERE product_best = 1
+	</select>
+	
+	<select id="product_list_best_food" resultType="com.study.springboot.dto.ProductDto">
+	  SELECT * FROM dcf_product WHERE product_best = 1 AND product_category_type = 0
+	</select>
+	
+	<select id="product_list_best_snack" resultType="com.study.springboot.dto.ProductDto">
+	  SELECT * FROM dcf_product WHERE product_best = 1 AND product_category_type = 1
+	</select>
+	
+	<select id="product_list_cat" resultType="com.study.springboot.dto.ProductDto">
+		  	  SELECT * FROM (
+        		SELECT temp_table.*, ROWNUM as rnum FROM (
+    				SELECT * FROM dcf_product WHERE product_animal = 1
+               ) temp_table ) WHERE RNUM BETWEEN #{param1} AND #{param2}
+	</select>
+	
+	<select id="product_list_cat_food" resultType="com.study.springboot.dto.ProductDto">
+			SELECT * FROM (
+        		SELECT temp_table.*, ROWNUM as rnum FROM (
+    				SELECT * FROM dcf_product WHERE product_animal = 1 AND product_category_type = 0
+               ) temp_table ) WHERE RNUM BETWEEN #{param1} AND #{param2}
+	  
+	</select>
+	
+	<select id="product_list_cat_snack" resultType="com.study.springboot.dto.ProductDto">
+				SELECT * FROM (
+        		SELECT temp_table.*, ROWNUM as rnum FROM (
+    				SELECT * FROM dcf_product WHERE product_animal = 1 AND product_category_type = 1
+               ) temp_table ) WHERE RNUM BETWEEN #{param1} AND #{param2}
+	  
+	</select>
+	
+	<select id="product_condition" resultType="com.study.springboot.dto.ProductDto">
+	  SELECT * FROM dcf_product WHERE (${ param1 }
+	</select>
+	
+	<select id="product_condition_food" resultType="com.study.springboot.dto.ProductDto">
+	  SELECT * FROM dcf_product WHERE (${ param1 } AND product_category_type = 0
+	</select>
+	
+	<select id="product_condition_snack" resultType="com.study.springboot.dto.ProductDto">
+	  SELECT * FROM dcf_product WHERE (${ param1 } AND product_category_type = 1
+	</select>
+
+
+	<insert id="insertProduct" parameterType="com.study.springboot.dto.ProductDto">
+		INSERT INTO DCF_PRODUCT 
+		VALUES( product_idx_seq.nextval, 
+		#{ product_name }, 
+		#{ product_price },  
+		#{ product_image },  
+		#{ product_content },  
+		#{ product_age },  
+		#{ product_feed_type }, 
+		#{ product_size }, 
+		#{ product_animal }, 
+		#{ product_new },  
+		#{ product_best }, 
+		0, 
+		#{ product_category_type }, 
+		sysdate, 
+		#{ product_sample }) 
+	</insert>
+	<update id="update" parameterType="com.study.springboot.dto.ProductDto">
+	  UPDATE dcf_product SET 
+	  product_name=#{ product_name },
+	  product_price=#{ product_price },
+	  product_image=#{ product_image },
+	  product_content=#{ product_content },
+	  product_age=#{ product_age },
+	  product_feed_type=#{ product_feed_type },
+	  product_size=#{ product_size },
+	  product_animal=#{ product_animal },
+	  product_category_type=#{ product_category_type },
+	  product_new=#{ product_new },
+	  product_best=#{ product_best },
+	  product_sample=#{ product_sample }
+	  WHERE product_idx=#{ product_idx }
+	</update>
+	<select id="update_view" resultType="com.study.springboot.dto.ProductDto">
+	  SELECT * FROM dcf_product WHERE product_idx=#{ param1 }
+	</select>
+</mapper>

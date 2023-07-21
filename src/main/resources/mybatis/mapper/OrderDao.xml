@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL 끝에 ; 세미콜론을 넣지 마세요! -->
+
+<mapper namespace="com.study.springboot.dao.IOrderDao">
+	<insert id="order_insert" parameterType="com.study.springboot.dto.OrderDto">
+	INSERT INTO DCF_ORDER VALUES(#{ order_idx }, 0, SYSDATE, #{ order_user_idx }, #{ user_name }, #{ user_phone }, #{ user_address })
+	</insert>
+	<insert id="order_detail_insert" parameterType="com.study.springboot.dto.OrderDto">
+	INSERT INTO DCF_ORDER_DETAIL VALUES(ORDER_IDX_SEQ.NEXTVAL, #{ order_idx }, #{ order_pd_idx } , #{ order_quantity }, #{ product_price })
+	</insert>
+	<select id="beforeDTO" resultType="_int">
+	  SELECT COUNT(order_status) FROM dcf_order WHERE order_status=0
+	</select>
+	
+	<select id="duringDTO" resultType="_int">
+	  SELECT COUNT(order_status) FROM dcf_order WHERE order_status=1
+	</select>
+	
+	<select id="afterDTO" resultType="_int">
+	  SELECT COUNT(order_status) FROM dcf_order WHERE order_status=2
+	</select>
+	
+	<select id="cancelDTO" resultType="_int">
+	  SELECT COUNT(order_status) FROM dcf_order WHERE order_status=3
+	</select>
+	
+	<select id="orderAllDTO" resultType="_int">
+	  SELECT COUNT(order_status) FROM dcf_order
+	</select>
+	
+
+	<select id="order_list" resultType="com.study.springboot.dto.OrderDto">
+    SELECT * FROM (
+        SELECT temp_table.*, ROWNUM as rnum FROM (
+    SELECT o.Order_idx, o.order_user_name , o.Order_date, o.order_status, COUNT(d.ORDER_IDX)
+    FROM DCF_ORDER o , DCF_ORDER_DETAIL d
+    WHERE o.ORDER_IDX = d.ORDER_IDX
+    GROUP BY o.ORDER_IDX, o.Order_date, o.order_status, o.order_user_name
+               ) temp_table ) WHERE RNUM BETWEEN #{param1} AND #{param2}
+	</select>
+	<select id="product_select" resultType="com.study.springboot.dto.DeliveryDto">
+	SELECT * FROM DCF_PRODUCT WHERE PRODUCT_IDX = (SELECT ORDER_PD_IDX FROM DCF_ORDER_DETAIL WHERE ORDER_IDX = #{param1} AND ROWNUM = 1)
+	</select>
+	<select id="Etc_" resultType="com.study.springboot.dto.OrderDto">
+	SELECT * FROM DCF_ORDER_DETAIL WHERE ORDER_IDX=#{param1}
+	</select>
+	
+	<select id="single_select" resultType="com.study.springboot.dto.OrderDto">
+	SELECT 
+	o.*,
+	u.USER_NAME,
+	u.USER_ID,
+	u.USER_PHONE,
+	u.USER_ADDRESS,
+	u.USER_EMAIL,
+	p.PRODUCT_NAME,
+	p.PRODUCT_IMAGE,
+	p.PRODUCT_PRICE
+	FROM DCF_ORDER o,
+	DCF_ORDER_DETAIL d,
+	DCF_PRODUCT p,
+	DCF_USERS u 
+	WHERE
+	d.order_idx = o.order_idx 
+	AND d.ORDER_PD_IDX = p.PRODUCT_IDX 
+	AND o.ORDER_USER_IDX = u.USER_IDX 
+	AND o.ORDER_IDX = #{param1}
+	AND ROWNUM = 1
+	ORDER BY d.ORDER_DETAIL_IDX ASC
+	</select>
+
+	<select id="product" resultType="com.study.springboot.dto.OrderDto">
+	SELECT 
+	o.*,
+	u.USER_NAME,
+	u.USER_ID,
+	u.USER_PHONE,
+	u.USER_ADDRESS,
+	u.USER_EMAIL,
+	p.PRODUCT_NAME,
+	p.PRODUCT_IMAGE,
+	p.PRODUCT_PRICE
+	FROM DCF_ORDER o,
+	DCF_ORDER_DETAIL d,
+	DCF_PRODUCT p,
+	DCF_USERS u 
+	WHERE
+	d.order_idx = o.order_idx 
+	AND	d.ORDER_PD_IDX = p.PRODUCT_IDX 
+	AND o.ORDER_USER_IDX = u.USER_IDX 
+	AND o.ORDER_IDX = #{param1}
+	ORDER BY o.ORDER_IDX ASC
+	</select>
+	
+	<update id="order_status_update">
+	UPDATE DCF_ORDER SET ORDER_STATUS=#{param1} WHERE ORDER_IDX=#{param2}
+	</update>
+	
+	<select id="payments_list" resultType="com.study.springboot.dto.OrderDto">
+	SELECT user_name, user_id, user_phone FROM dcf_users WHERE user_idx=#{param1}
+	</select>
+	
+	<select id="payments_product" resultType="com.study.springboot.dto.OrderDto">
+	SELECT * FROM dcf_basket, dcf_product WHERE dcf_basket.basket_pd_idx = dcf_product.product_idx and basket_idx =#{ param1 }
+	</select>
+	
+	<select id="payments_product_check" resultType="com.study.springboot.dto.OrderDto">
+	SELECT * FROM dcf_basket, dcf_product WHERE ${ param1 }
+	</select>
+
+	<select id="myOrderList" resultType="com.study.springboot.dto.OrderDto">
+	    select * from dcf_order where order_user_idx=#{param1} 
+	</select>
+	
+	<select id="list" resultType="com.study.springboot.dto.OrderDetailDto">
+	 select * from dcf_order_detail d join dcf_order o on d.order_idx = o.order_idx where d.order_idx = {order_idx}
+	</select>
+
+	<delete id="order_list_delete">
+	  DELETE FROM dcf_order WHERE order_idx = #{ param1 }
+	</delete>
+
+	<select id="orderdetail" resultType="com.study.springboot.dto.OrderDto">
+	    select *
+        from dcf_order o inner join dcf_order_detail d on o.order_idx = d.order_idx
+        inner join dcf_product p on d.order_pd_idx = p.product_idx
+        where o.order_user_idx =  ${param2} and o.order_idx = ${ param1 }
+        order by d.order_idx  
+	</select>
+
+	<select id="orderUserDetail" resultType="com.study.springboot.dto.OrderDto">
+	    select *
+        from dcf_order o inner join dcf_order_detail d on o.order_idx = d.order_idx
+        inner join dcf_product p on d.order_pd_idx = p.product_idx
+        where o.order_user_idx =  ${param2} and o.order_idx = ${ param1 }
+        order by d.order_idx  
+	</select>
+
+	<delete id="delete">
+	DELETE FROM DCF_BASKET WHERE BASKET_IDX = #{ param1 }
+	</delete>
+	
+	<select id="order_list_search" resultType="com.study.springboot.dto.OrderDto">
+	  SELECT * FROM dcf_users, dcf_order WHERE dcf_users.user_idx = dcf_order.order_user_idx AND dcf_users.${ param1 }
+	</select>
+	
+	<select id="before" resultType="_int">
+	  SELECT COUNT(order_status) FROM dcf_order WHERE order_status=0 AND order_user_idx=#{ param1 }
+	</select>
+	
+	<select id="during" resultType="_int">
+	  SELECT COUNT(order_status) FROM dcf_order WHERE order_status=1 AND order_user_idx=#{ param1 }
+	</select>
+	
+	<select id="after" resultType="_int">
+	  SELECT COUNT(order_status) FROM dcf_order WHERE order_status=2 AND order_user_idx=#{ param1 }
+	</select>
+</mapper>

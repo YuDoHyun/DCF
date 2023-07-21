@@ -1,0 +1,109 @@
+@charset "UTF-8";
+*{
+	margin:0; padding:0; box-sizing:border-box;
+}
+    #admin-product-wrap{
+        margin-top: 170px;
+        margin-left: 20px;
+        width:800px;        
+        float:left;
+    }
+    #category-table{
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0 15px;
+    }
+    #product-table{
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0 15px;
+    }
+    .title{
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .setting{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .bkcolor{
+        background-color: #ebebeb;
+    }
+    .line-top{
+        border-top: 1px solid #292929;
+    }
+    .line-bottom{
+        border-bottom: 1px solid #292929;
+    }
+    .item{
+        padding: 10px;
+    }
+    .wd-30{
+        width: 20%;
+    }
+    .KRW{
+        height: 39px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .input-border{
+        border: 1px solid #292929;
+    }
+
+    .wd-80{
+        width: 80px;
+        height: 80px;
+    }
+    #btn-box{
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+    }
+    #btn{
+        border: 1px solid #292929;
+        color: #292929;
+        background-color: white;
+        border-radius: 3px;
+        width: 100px;
+        height: 35px;
+        transition: 0.2s;
+    }
+    #btn:hover{
+    	background-color: #fee469;
+    	border: 0;
+    }
+    #label-box{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .uploadlabel{
+        text-align: center;
+        width: 50px;
+        font-size: 16px;
+        line-height: 25px;
+        height: 25px;
+        
+        margin-left: 10px;
+        border: 1px solid #292929;
+    }
+    #deletebtn{
+        height: 26.5px;
+    }
+    input[type="file"] {
+        position: absolute;
+        width: 0;
+        height: 0;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        border: 0;
+    }
+    
+    #textarea{
+        border: 1px solid #292929;
+        background-color: white;
+    }

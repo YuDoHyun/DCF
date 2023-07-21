@@ -1,0 +1,115 @@
+#page-nav-wrap{
+    width: 100%;
+    border-bottom: 1px solid #6d6d6d;
+}
+#page-nav{
+    margin: 0 auto;
+    width: 1080px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #6d6d6d;  
+}
+a { 
+    text-decoration: none;
+    color: #292929;
+} 
+.mypagewrap {
+    width: 470px;
+    margin: 0 auto;
+}
+.mypage-title {
+    display: flex;
+    justify-content: space-between;
+    height: 90px;
+    margin-top: 80px;
+    color: #292929;
+}
+.mypage1 {
+    font-size: 32px;
+}
+.mypage2 {
+    font-size: 18px;
+}
+.mypage-status {
+    padding-top: 30px;
+}
+.mypage-logout {
+    background-color: #292929;
+    height: 23px;
+    color: white;
+    margin-top: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 75px;
+}
+.mypage-condition {
+    border-top: 1px solid #292929;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+.mypage-order-condition {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+.order-condition1, .order-condition2, .order-condition3, .order-condition4 {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.order-condition1 {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-color: #fee469;
+    color: white;
+}
+.order-condition2 {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-color: #3d5bf2;
+    color: white;
+}
+.condition-num {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding-top: 10px;
+	padding-right: 1px;
+    width: 50px;
+    height: 50px;
+    font-size: 32px;
+}
+.condition-next {
+    padding-top: 20px;
+}
+.order-condition {
+    display: flex;
+    margin-bottom: 30px;
+}
+.condition-status {
+    color: #505050;
+}
+.condition-status2 {
+    margin-left: 35px;
+}
+.condition-status3 {
+    margin-left: 130px;
+}
+.condition-status4 {
+    margin-left: 125px;
+}
+.mypage-filter {
+    border-top: 1px solid #292929;
+    padding: 10px 0 10px 10px;
+    color: #292929;
+}
+.mypage-filter2 {
+    border-bottom: 1px solid #292929;
+    margin-bottom: 100px;
+}

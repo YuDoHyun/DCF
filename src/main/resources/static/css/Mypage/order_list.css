@@ -1,0 +1,150 @@
+#page-nav-wrap{
+    width: 100%;
+    border-bottom: 1px solid #6d6d6d;
+}
+#page-nav{
+    margin: 0 auto;
+    width: 1080px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #6d6d6d;  
+}
+.orderlistwrap {
+    width: 1080px;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.orderlist {
+    font-size: 24px;
+    font-weight: bold;
+    color: #292929;
+}
+.orderlist2 {
+    margin-top: 20px;
+    width: 1000px;
+    height: 40px;
+    background-color: #ebebeb;
+    border-radius: 5px;
+    line-height: 40px;
+}
+.orderdate{   
+    color: #292929; font-weight:bold;
+}
+.ordernum1{ color: #292929; }
+.orderdate {
+    margin-left: 20px;
+    margin-right: 300px;
+}
+.ordernum1 {
+    margin-left: 295px;
+}
+.ordernum2 {
+    font-size: 16px;
+    color: #3d5bf2;
+}
+.ordernum{
+	float:right; margin-right:20px;
+}
+.order-product {
+    width: 1000px;
+    position:relative; left:0; right:0;
+    display: flex;
+    flex-direction: row; 
+    border-bottom: 1px solid #ebebeb;
+}
+.imgdiv {
+    width: 170px;
+    height: 170px;
+    overflow: hidden;
+    margin: 15px 0 15px 25px;
+}
+.imgdiv img{
+	width:100%; height:100%;
+}
+.product-namediv {
+    margin: 35px 0 0 70px;
+}
+.product-name {
+    font-size: 20px;
+    color: #292929;
+    font-weight:bold;
+}
+.product-quantitydiv {
+    height: 50px;
+    margin-top: 125px;
+    position:absolute; 
+    right:150px;
+
+}
+.product-quantity {
+    color: #505050;
+    text-align:right;
+}
+.product-price {
+    font-size: 16px;
+    color: #292929;
+    font-weight: bold;
+    text-align:right;    
+	
+}
+.buttondiv {
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    margin-top: 25px;
+	position:absolute; right:20px;
+    float:right;
+  
+}
+.order-button {
+    width: 100px;
+    height: 35px;
+    margin-bottom: 5px;
+    border: 1px solid #292929;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: white;
+    color: #292929;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.order-button:hover {
+	background-color: #fee469;
+	border: 1px solid #fee469;
+}
+.price-top {
+    width: 1000px;
+    border-top: 2px solid #ebebeb;
+    margin-bottom: 60px;
+}
+.pricediv {
+    text-align: end;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+.price-all {
+    width: 100px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fee469;
+    font-size: 16px;
+    color: #292929;
+    margin-bottom: 5px;
+}
+.all-price1 {
+    font-size: 24px;
+    color: #292929;
+    font-weight: bold;
+}
+.all-price2 {
+    font-size: 18px;
+}
+.order-all {
+    font-size: 18px;
+    color: #505050;
+    border-bottom: 1px solid #505050;
+    margin-right: 50px;
+}

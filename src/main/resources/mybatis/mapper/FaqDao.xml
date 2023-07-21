@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL 끝에 ; 세미콜론을 넣지 마세요! -->
+
+<mapper namespace="com.study.springboot.dao.IFaqDao">
+	
+	<select id="list" resultType="com.study.springboot.dto.FaqDto">
+	  SELECT * FROM dcf_faq ORDER BY faq_idx DESC
+	</select>
+	
+	<select id="faq_detail" resultType="com.study.springboot.dto.FaqDto">
+	  SELECT * FROM dcf_faq WHERE faq_idx = #{ param1 }
+	</select>
+	
+	<insert id="adminWritefaqformAction">
+    	insert into dcf_faq (faq_idx, faq_title, faq_content, faq_date) 
+		values (faq_idx_seq.nextval, #{ param1 }, #{ param2 }, sysdate)
+    </insert>
+	<select id="faqdto" resultType="com.study.springboot.dto.FaqDto">
+    	select * from dcf_faq where faq_idx=#{ param1 }
+    </select>
+
+	<delete id="adminfaqDeleteAction">
+    	delete from dcf_faq where faq_idx=#{ param1 }
+    </delete>
+   
+	<update id="adminfaqUpdateAction">
+	update dcf_faq set faq_title=#{param2}, faq_content=#{param3} where faq_idx=#{param1}
+    </update>
+    
+    <select id="search" resultType="com.study.springboot.dto.FaqDto">
+	  SELECT * FROM dcf_faq WHERE faq_title LIKE '%'||#{ param1 }||'%' OR faq_content LIKE '%'||#{ param1 }||'%' ORDER BY faq_idx DESC
+	</select>
+	
+</mapper>

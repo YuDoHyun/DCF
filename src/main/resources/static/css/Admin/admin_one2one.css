@@ -1,0 +1,92 @@
+@charset "UTF-8";
+ *{
+        margin:0; padding:0; box-sizing: border-box; border:none;
+    }
+    .content-wrap{
+        margin-top: 170px;
+        margin-left: 20px;
+        width:800px;        
+        float:left;
+       
+    }
+    .fontcolor292929{
+        color:#292929;
+    }
+    div > .admin-title{
+       font-size: 24px;
+       font-weight: bold;                
+    }   
+    /*button style*/     
+    div.btn-wrap{
+        width: 100%; height:50px;
+        padding-top:5px; margin-top: 50px;
+    }  
+    .btn-wrap label >input:first-child{
+        width:150px; height: 30px; line-height:30px; background-color:#ffff;
+        border:1px solid #292929; color:#292929; border-radius: 5px; 
+    }
+    .customer-search{
+        float: right;
+    }
+    .searchbar {
+    width: 200px;
+    height: 30px;
+    color: #292929;
+    border:1px solid #292929;
+    }
+    .searchbutton {
+        width: 60px;
+        height: 30px;
+        background-color: #292929;
+        color: white;
+        border: 0;
+        border-radius: 5px;
+        margin-left: 5px;
+        cursor: pointer;
+} 
+    /*table style*/
+    .content-wrap table{
+        width: 100%;  margin-top:0px;
+        border-spacing:0px; border-collapse:collapse;
+    }
+    thead{
+        width: 100%; height: 35px; line-height: 35px; background-color: #ebebeb;
+       
+    }
+    /*table title style*/
+    .content-wrap table thead th{
+        color:#292929; font-weight: bold;
+
+    }
+    .content-wrap thead th{       
+        border-collapse:collapse;
+        border: none;
+        
+    }
+    .content-wrap tr{
+        width: 100%;    
+    }
+    /*table content style*/
+    .content-wrap tbody tr td{
+        border:1px solid #ebebeb;
+        text-align: center;
+        height:30px;
+        color:#505050;
+        
+    }
+    .content-wrap tbody tr td:first-child{
+        border-left: none;        
+        width:90px;
+    }
+    .content-wrap tbody tr td:nth-child(2){
+        width: 130px;
+    }
+    .content-wrap tbody tr td:nth-child(3){
+        width:50%;
+        padding: 0 15px; box-sizing:border-box; 
+        text-align: left; 
+    }
+    .content-wrap tbody tr td:last-child{
+        border-right: none;
+        width:110px; 
+    } 

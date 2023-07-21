@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL 끝에 ; 세미콜론을 넣지 마세요! -->
+
+<mapper namespace="com.study.springboot.dao.IOne2OneDao">
+
+	<select id="list" resultType="com.study.springboot.dto.One2OneDto">
+	  SELECT * FROM dcf_one2one, dcf_users WHERE dcf_one2one.one2one_user_idx = dcf_users.user_idx ORDER BY one2one_idx DESC
+	</select>
+
+	<select id="content_detail" resultType="com.study.springboot.dto.One2OneDto">
+	  SELECT * FROM dcf_one2one, dcf_users WHERE dcf_one2one.one2one_user_idx = dcf_users.user_idx and one2one_idx=#{ param1 }
+	</select>
+	
+	<update id="reply" parameterType="com.study.springboot.dto.One2OneDto">
+	  UPDATE dcf_one2one SET one2one_reply =#{ param1 } WHERE one2one_idx=#{ param2 }
+	</update>
+	
+	<select id="search" resultType="com.study.springboot.dto.One2OneDto">
+	  SELECT * FROM dcf_one2one, dcf_users WHERE dcf_one2one.one2one_user_idx = dcf_users.user_idx
+	  AND one2one_title LIKE '%'||#{ param1 }||'%' OR dcf_one2one.one2one_user_idx = dcf_users.user_idx
+	  AND one2one_content LIKE '%'||#{ param1 }||'%'
+	  ORDER BY one2one_idx DESC
+	</select>
+	
+	<select id="mylist" resultType="com.study.springboot.dto.One2OneDto">
+	  SELECT * FROM dcf_one2one where one2one_user_idx = #{ param1 }
+	</select>
+	
+	<insert id="insert" parameterType="com.study.springboot.dto.One2OneDto">
+	  INSERT INTO dcf_one2one VALUES (ONE2ONE_IDX_SEQ.NEXTVAL, #{ one2one_title }, #{ one2one_content }, #{ one2one_image }, null, sysdate , #{ one2one_User_idx })
+	</insert>
+	
+	<delete id="delete">
+	  DELETE FROM dcf_one2one WHERE one2one_idx = #{ param1 }
+	</delete>
+	
+</mapper>

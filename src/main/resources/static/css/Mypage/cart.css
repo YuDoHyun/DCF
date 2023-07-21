@@ -1,0 +1,216 @@
+#page-nav-wrap{
+    width: 100%;
+    border-bottom: 1px solid #6d6d6d;
+}
+#page-nav{
+    margin: 0 auto;
+    width: 1080px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #6d6d6d;  
+}
+.cartwrap {
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.cartlist {
+    font-size: 24px;
+    font-weight: bold;
+    color: #292929;
+    margin-left: 5px;
+}
+.cartlist-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: 3px solid #292929;
+    margin-top: 10px;
+    height: 40px;
+    font-size: 16px;
+    color: #292929;
+    /* padding-left: 15px; */
+    padding-right: 15px;
+}
+.product-name {
+    margin-left: 200px;
+}
+.product-count {
+    margin-left: 250px;
+}
+.product-price {
+    margin-left: 160px;
+}
+.product-order {
+    margin-left: 160px;
+}
+.cartlist-content {
+    border-top: 1px solid #505050;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.checkboxdiv {
+    margin-left: 15px;
+    width: 20px;
+    height: 20px;
+}
+.imgdiv {
+    height: 120px;
+    margin-left: 75px;
+    border: 1px solid #505050;
+}
+.productname {
+    font-size: 16px;
+    color: #292929;
+    font-weight: bold;
+    margin-left: 35px;
+    width: 145px;
+}
+.countdiv {
+    display: flex;
+    flex-direction: row;
+    margin-left: 84px;
+    width: 105px;
+}
+.minusbutton {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-top: 1px solid #d7d7d7;
+    border-left: 1px solid #d7d7d7;
+    border-bottom: 1px solid #d7d7d7;
+    border-right: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+.result {
+    text-align: center;
+    width: 45px;
+    height: 21px;
+    border: 1px solid #d7d7d7;
+    font-size: 16px;
+    padding-top: 2px;
+}
+.plusbutton {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-top: 1px solid #d7d7d7;
+    border-right: 1px solid #d7d7d7;
+    border-bottom: 1px solid #d7d7d7;
+    border-left: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+.productprice {
+	display: flex;
+    margin-left: 110px;
+    width: 55px;
+}
+.buttondiv {
+    display: flex;
+    flex-direction: column;
+    margin-left: 107px;
+}
+.price {
+    font-size: 16px;
+    color: #292929;
+}
+.price-num {
+    font-weight: bold;
+}
+.cartlist-button {
+    width: 100px;
+    height: 35px;
+    font-size: 16px;
+    color: #292929;
+    background-color: white;
+    border: 1px solid #292929;
+    border-radius: 5px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.cartlist-button1 {
+    margin-bottom: 5px;
+}
+.cartlist-button:hover {
+    background-color: #fee469;
+    border: none;
+}
+.cartlist-delete {
+    border-top: 1px solid #505050;
+    border-bottom: 1px solid #505050;
+    height: 46px;
+}
+.delete-button {
+    width: 70px;
+    height: 30px;
+    color: #505050;
+    border: 1px solid #505050;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: white;
+    margin: 8px 0 0 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.delete-button:hover {
+	background-color: #fee469;
+	border: none;
+}
+.cartlist-order {
+    height: 85px;
+    background-color: #ebebeb;
+    border-bottom: 1px solid #505050;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.priceall {
+    font-size: 18px;
+    color: #505050;
+    margin-right: 25px;
+}
+.price-all-num {
+    font-size: 24px;
+    color: #292929;
+    font-weight: bold;
+}
+.price-all {
+    font-size: 18px;
+    color: #292929;
+    margin-right: 15px;
+}
+.orderbuttondiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+.order-button {
+    width: 135px;
+    height: 35px;
+    font-size: 16px;
+    background-color: white;
+    color: #292929;
+    cursor: pointer;
+    border: 1px solid #292929;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    transition: 0.2s;
+}
+.order-button:hover {
+    background-color: #fee469;
+    border: none;
+}
+.order-button1 {
+    margin-right: 10px;
+}
+.order-button2 {
+    margin-right: 15px;
+}

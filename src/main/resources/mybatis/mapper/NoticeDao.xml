@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL 끝에 ; 세미콜론을 넣지 마세요! -->
+
+<mapper namespace="com.study.springboot.dao.INoticeDao">
+	
+	<select id="notice_detail" resultType="com.study.springboot.dto.NoticeDto">
+	  SELECT * FROM dcf_notice WHERE notice_idx = #{ param1 }
+	</select>
+	
+	<select id="list" resultType="com.study.springboot.dto.NoticeDto">
+		    SELECT * FROM (
+        SELECT temp_table.*, ROWNUM as rnum FROM (
+               select * from DCF_NOTICE order by notice_idx desc
+               ) temp_table )  WHERE RNUM BETWEEN #{ param1 } AND #{ param2 }
+	</select>
+	<insert id="adminWriteNoticeformAction">
+    	insert into dcf_notice (notice_idx, notice_title, notice_content, notice_date) 
+		values (notice_idx_seq.nextval, #{ param1 }, #{ param2 }, sysdate)
+    </insert>
+	<select id="noticedto" resultType="com.study.springboot.dto.NoticeDto">
+    	select * from dcf_notice where notice_idx=#{ param1 }
+    </select>
+
+	<delete id="adminnoticeDeleteAction">
+    	delete from dcf_notice where notice_idx=#{ param1 }
+    </delete>
+   
+	<update id="adminUpdateAction">
+	update dcf_notice set notice_title=#{param2}, notice_content=#{param3} where notice_idx=#{param1}
+    </update>
+    
+    <select id="search" resultType="com.study.springboot.dto.NoticeDto">
+	  SELECT * FROM dcf_notice WHERE notice_title LIKE '%'||#{ param1 }||'%' OR notice_content LIKE '%'||#{ param1 }||'%' ORDER BY notice_idx DESC
+	</select>
+
+</mapper>

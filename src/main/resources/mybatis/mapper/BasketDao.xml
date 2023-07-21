@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL 끝에 ; 세미콜론을 넣지 마세요! -->
+
+<mapper namespace="com.study.springboot.dao.IBasketDao">
+
+	<select id="list" resultType="com.study.springboot.dto.BasketDto">
+	  SELECT * FROM dcf_basket, dcf_product WHERE dcf_basket.basket_pd_idx = dcf_product.product_idx and basket_user_idx = #{ param1 } ORDER BY basket_idx ASC
+	</select>
+	
+	<insert id="insert">
+	INSERT INTO DCF_BASKET VALUES(BASKET_IDX_SEQ.NEXTVAL, #{param1}, sysdate, #{param2}, #{param3})
+	</insert>
+	
+	<select id="sum" resultType="_int">
+	  SELECT NVL(SUM(product_price*basket_count),0) FROM dcf_product, dcf_basket WHERE dcf_basket.basket_pd_idx = dcf_product.product_idx and basket_user_idx = #{ param1 }
+	</select>
+	
+	<delete id="delete">
+	  DELETE FROM dcf_basket WHERE basket_idx = #{ param1 }
+	</delete>
+	
+	<delete id="delete_rowNum">
+	  DELETE FROM dcf_basket WHERE (ROWNUM, basket_idx) = (SELECT ROWNUM, basket_idx FROM
+	  (SELECT ROWNUM as rn, basket_idx FROM dcf_basket WHERE basket_user_idx = #{ param1 }) WHERE rn = #{ param2 })
+	</delete>
+	
+	<update id="update_plus">
+	  UPDATE dcf_basket SET basket_count = basket_count +1 WHERE (ROWNUM, basket_idx) = (SELECT ROWNUM, basket_idx FROM 
+	  (SELECT ROWNUM as rn, basket_idx FROM dcf_basket WHERE basket_user_idx = #{ param1 }) WHERE rn = #{ param2 })
+	</update>
+	
+	<update id="update_minus">
+	  UPDATE dcf_basket SET basket_count = basket_count -1 WHERE (ROWNUM, basket_idx) = (SELECT ROWNUM, basket_idx FROM 
+	  (SELECT ROWNUM as rn, basket_idx FROM dcf_basket WHERE basket_user_idx = #{ param1 }) WHERE rn = #{ param2 }) and basket_count ^= 1
+	</update>
+	
+</mapper>

@@ -1,0 +1,70 @@
+@charset "UTF-8";
+  *{
+        margin:0; padding:0; box-sizing: border-box;
+    }
+    .content-wrap{
+        margin-top: 170px;
+        margin-left: 20px;
+        width:800px;        
+        float:left;
+       
+    }
+    div > .admin-title{
+       font-size: 24px;
+       font-weight: bold;
+                
+    }
+    /*current-order-list 전체 주문 현황*/
+    div#current-order-list{
+        width:750px; height:220px;
+        border:3px solid #ebebeb;
+        margin:20px 0 50px 0; 
+    }
+    div#current-order-list div{
+        width: 33.3%; height: 100%;
+        display: flex;  flex-direction:column;
+        justify-content: center; float: left;
+    }
+    p.current-order-title{       
+        color:#505050; font-size:18px; font-weight: bold;
+        text-align: center;
+    }
+    div#current-order-list div p:nth-child(2n){
+        font-size: 24px;
+        color:#292929;
+        font-weight: bold;
+        margin:20px 0 0 10px; text-align: center;
+    }
+    div#current-order-list div p:nth-child(2n)::after{
+        content: "건";
+        font-size:18px;
+        color:#292929;
+    }
+    /*cancle-change-return-list 취소/교환/반품 현황*/
+    div#cancle-change-return-list{
+        width:750px; height:160px;
+        border:3px solid #ebebeb;
+        display: flex; flex:row wrap;
+        margin-top:20px;
+    }
+    div#cancle-change-return-list div{
+        width:33.3%;  height:70px; 
+        border-right:1px solid #ebebeb; 
+        margin: auto 0;
+    }
+    div#cancle-change-return-list div:last-child{
+        border-right:none;        
+    }   
+    p.change-return-title{
+        width:100%; color:#505050; font-size:18px; font-weight: bold;
+        text-align: center;
+    }
+    div#cancle-change-return-list div p:nth-child(2n){
+        width: 100%; text-align: center;
+        font-size: 24px;
+        color:#292929;
+        font-weight: bold; margin-top:10px;
+    }
+    div#cancle-change-return-list div p:nth-child(2n)::after{
+        content: "건"; color:#292929; font-size:18px; 
+    }

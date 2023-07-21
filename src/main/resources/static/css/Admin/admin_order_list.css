@@ -1,0 +1,115 @@
+@charset "UTF-8";
+  *{
+        margin:0; padding:0; box-sizing: border-box;
+    }
+    .content-wrap{
+        margin-top: 170px;
+        margin-left: 20px;
+        width:800px;        
+        float:left;
+       
+    }
+    .fontcolor292929{
+        color:#292929;
+    }
+    div > .admin-title{
+       font-size: 24px;
+       font-weight: bold;                
+    }  
+    /*상단 버튼 랩*/
+    div.btn-wrap{
+        width: 100%; height:50px;
+        padding-top:5px; margin-top: 50px;
+    }  
+    .btn-wrap label >input:first-child{
+        width:100px; height: 35px; line-height:30px; background-color:#ffff;
+        border:1px solid #292929; color:#292929; border-radius: 5px; 
+    }
+    .customer-search{
+        display:flex;
+        flex-direction:row;
+        justify-content:end;
+        align-items:center;
+    }
+    #search{
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    font-size: 14px;
+    color: #292929;
+    }
+    .searchbar {
+    width: 200px;
+    height: 30px;
+    font-size: 16px;
+    color: #292929;
+}
+.searchbutton {
+    width: 60px;
+    height: 30px;
+    background-color: #292929;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-top: 3px;
+    cursor: pointer;
+}
+    /*table style*/
+    .content-wrap table{
+        width: 100%; 
+        border-spacing:0px; border-collapse:collapse;
+    }
+    thead{
+        width: 100%; height: 35px; line-height: 35px; background-color: #ebebeb;       
+    }
+    /*table title style*/
+    .content-wrap table thead th{
+        color:#292929; font-weight: bold; 
+    }
+
+    /*table content style*/
+    .content-wrap tbody tr{
+        border-bottom:1px solid #ebebeb;
+    }
+    .content-wrap tbody tr td{       
+        text-align: center;
+        height:90px; 
+        color:#505050;
+        font-size: 14px;
+        
+    }
+    .content-wrap tbody tr td:first-child{           
+        width:90px; 
+    }
+    .content-wrap tbody tr td:nth-child(2){
+      width: 130px;
+    }
+    div.admin-product-img{
+        width:100%; 
+        display: flex; align-items: center;
+        
+    }
+    .admin-product-img span:nth-child(1){
+        /*상품명 이미지랩*/
+        width: 70px; height: 70px; overflow:hidden; padding:0;        
+    }
+    .admin-product-img span:nth-child(1) img{
+        /*이미지 width*/
+        width: 100%;        
+    }
+    div.admin-product-img span:nth-child(2){
+        /*상품명 이름*/
+        display: block;
+        padding-left: 10px; box-sizing: border-box;
+        
+ 
+    }
+    .content-wrap tbody tr td:last-child{
+        border-right: none;
+        width:120px; 
+    } 
+    .row{
+    	margin-top:20px;
+    	margin-left:280px;
+    }

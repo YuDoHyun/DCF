@@ -1,0 +1,61 @@
+@charset "UTF-8";
+    *{padding: 0;margin: 0;}
+#page-nav-wrap{
+    width: 100%;
+    border-bottom: 1px solid #6d6d6d;
+}
+#page-nav{
+    padding: 10px;
+    margin: 0 auto;
+    width: 1080px;
+    font-size: 16px;
+    color: #6d6d6d;  
+}
+
+#idfind-wrap{
+    width: 1080px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+#idfind-title{
+    margin: 35px 0;
+    text-align: center;
+    font-size: 24px;
+    color: #292929;
+}
+/* session-1 */
+#idfind-session-1{
+    position: relative;
+    width: 420px;
+    margin: 0 auto;
+}
+
+.input-radius{
+    border: 1px solid #d7d7d7;
+    width: 100%;
+    height: 47px;
+    border-radius: 10px;
+    padding-left: 10px;
+    margin: 10px 0;
+}
+#idfind-session-1 > p{
+    font-weight: bold;
+    color: #6d6d6d;
+    margin-top: 10px;
+}
+#idfind-session-1 > p:nth-child(3){
+    margin-top: -5px;
+    font-size: 14px;
+    color: #6d6d6d;
+    font-weight: normal;
+}
+#bt1{
+    margin-top: 10px;
+    font-size: 16px;
+    width: 100%;
+    height: 47px;
+    border: 0;
+    border-radius: 10px;
+    background-color: #3d5bf2;
+    color: #ffff;
+}

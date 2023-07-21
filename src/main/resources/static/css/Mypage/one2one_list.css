@@ -1,0 +1,80 @@
+a {
+    text-decoration: none;
+    color: #292929;
+}
+#page-nav-wrap{
+    width: 100%;
+    border-bottom: 1px solid #6d6d6d;
+}
+#page-nav{
+    margin: 0 auto;
+    width: 1080px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #6d6d6d;  
+}
+.onetoonelistwrap {
+    width: 1000px;
+    margin: 0 auto;
+}
+.table {
+    border-spacing: 0px;
+    border-collapse: separate;
+    width: 1000px;
+    margin-bottom: 300px;
+}
+.onetoonelist-title {
+    font-size: 24px;
+    color: #292929;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.table-td1, .table-td2 {
+    border-top: 3px solid #292929;
+    height: 50px;
+    background-color: #ebebeb;
+    color: #292929;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 20px;
+}
+.table-td1, .td1 {
+    width: 800px;
+}
+.table-td2 {
+    padding-left: 40px;
+}
+.td1, .td2 {
+    height: 50px;
+    color: #505050;
+    font-size: 18px;
+    border-top: 1px solid #505050;
+    padding-left: 20px;
+}
+.td3 {
+    border-bottom: 1px solid #505050;;
+}
+.onetoone-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-bottom: 50px;
+}
+.onetoone {
+    width: 120px;
+    height: 30px;
+    margin-top: 3px;
+    border: 1px solid #292929;
+    border-radius: 5px;
+    background-color: white;
+    color: #292929;
+    margin-right: 10px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.onetoone:hover {
+	background-color: #fee469;
+	border: none;
+}

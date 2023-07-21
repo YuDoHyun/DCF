@@ -1,0 +1,60 @@
+#page-nav-wrap{
+    width: 100%;
+    border-bottom: 1px solid #6d6d6d;
+}
+#page-nav{
+    margin: 0 auto;
+    width: 1080px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #6d6d6d;  
+}
+#orderActionwrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+#orderinfo {
+    display: flex;
+    flex-direction: column;
+}
+#confirm {
+    font-size: 24px;
+    color: #292929;
+    text-decoration: 2px underline;
+    text-underline-position: under;
+    margin-bottom: 20px;
+}
+#action {
+    font-size: 18px;
+    color: #505050;
+    font-weight: 500;
+    margin-top: 5px;
+}
+#action2 {
+    font-size: 18px;
+    color: #505050;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+.orderAction-button {
+    font-weight: 500;
+    border: 1px solid #292929;
+    border-radius: 5px;
+    width: 130px;
+    height: 40px;
+    margin-top: 30px;
+    margin-bottom: 150px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: white;
+    color: #292929;
+    transition: 0.2s;
+}
+.orderAction-button:hover {	
+    background-color: #fee469;
+    border: none;
+}

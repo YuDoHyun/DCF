@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL 끝에 ; 세미콜론을 넣지 마세요! -->
+
+<mapper namespace="com.study.springboot.dao.IUsersDao">
+	<select id="list_member" resultType="com.study.springboot.dto.UsersDto">
+		SELECT * FROM DCF_USERS
+	</select>
+	
+	<select id="login" resultType="com.study.springboot.dto.UsersDto">
+		SELECT * FROM dcf_users WHERE user_id=#{param1} and user_pw=#{param2}
+	</select>
+	
+	<select id="user_list" resultType="com.study.springboot.dto.UsersDto">
+		SELECT user_id FROM DCF_USERS
+	</select>
+	
+	<select id="list" resultType="com.study.springboot.dto.UsersDto">
+		SELECT * FROM DCF_USERS WHERE user_idx = #{ param1 }
+	</select>
+	
+	<select id="mypage" resultType="com.study.springboot.dto.UsersDto">
+		SELECT * FROM DCF_USERS WHERE user_idx = #{ param1 }
+	</select>
+	
+	<update id="update" parameterType="com.study.springboot.dto.UsersDto">
+	  	UPDATE dcf_users SET
+	  	user_name=#{ user_name },
+	  	user_pw=#{ user_pw },
+	  	user_email=#{ user_email },
+	  	user_phone=#{ user_phone },
+	  	user_birth_date=#{ user_birth_date },
+	  	user_gender=#{ user_gender },
+	  	user_address=#{ user_address }
+	  	WHERE user_idx=#{ user_idx }
+	</update>
+	<select id="usersdto" resultType="com.study.springboot.dto.UsersDto">
+    	select * from dcf_users where user_idx=#{ param1 }
+    </select>
+    <update id="admin_member_update_form" parameterType="com.study.springboot.dto.UsersDto">
+		update dcf_users set user_id=#{user_id}, user_pw=#{user_pw},user_name=#{user_name},user_address=#{user_address},user_email=#{user_email},
+		user_gender=#{user_gender},user_phone=#{user_phone},user_birth_date=#{user_birth_date} where user_idx=#{user_idx}
+    </update>
+    <delete id="adminMemberDeleteAction">   		
+    	delete from dcf_users where user_idx=#{ param1 }
+    </delete>
+	<select id="userId" resultType="com.study.springboot.dto.UsersDto">
+    	select * from dcf_users
+    	where (user_name=#{param1}) and (user_email=#{param2} or user_phone=#{param3})
+    </select>
+    <select id="userPw" resultType="com.study.springboot.dto.UsersDto">
+    	select * from dcf_users
+    	where ((user_id=#{param1}) and (user_name=#{param2})) and (user_email=#{param3} or user_phone=#{param4})
+    </select>
+    <insert id="signUp" parameterType="com.study.springboot.dto.UsersDto">
+    
+           insert into dcf_users  (
+	       user_idx,
+	       user_id,
+	       user_pw,
+	       user_name,
+	       user_address,
+	       user_email,
+	       user_email_receive,
+	       user_gender,
+	       user_phone,
+	       user_birth_date,
+	       user_join_date)
+	       values (
+	       user_idx_seq.NEXTVAL,
+	       #{user_id},
+	       #{user_pw},
+	       #{user_name},
+	       #{user_address},
+	       #{user_email},
+	       #{user_email_receive},
+	       #{user_gender},
+	       #{user_phone},
+	       #{user_birth_date},
+	       sysdate)   
+    </insert>
+    <select id="idCheck" parameterType="com.study.springboot.dao.IUsersDao" resultType="int">
+    	select count(*) from dcf_users where user_id=#{user_id}
+    </select>
+    
+    <select id="search" resultType="com.study.springboot.dto.UsersDto">
+	  SELECT * FROM dcf_users WHERE ${ param1 }
+	</select>
+	
+</mapper>
+
+

@@ -1,0 +1,135 @@
+@charset "UTF-8";
+*{box-sizing: border-box;}
+input[type=button]{
+    cursor: pointer;
+}
+#productActionpage-wrap{
+    height: 440px;
+    width: 1080px;
+    margin: 0 auto;
+    border: 2px solid #ebebeb;
+    border-top: 0;
+}
+#productActionpage-img{
+    display: flex;
+    margin-top: 40px;
+    justify-content: center;
+    width: 60%;
+}
+#productActionpage-topwrap{
+    display: flex;
+    flex-direction: row;
+}
+#productActionpage-img > img {
+    width: 40%;
+}
+
+#productActionpage-name{
+    margin-top: -25px;
+    font-size: 26px;
+    font-weight: bold;
+}
+#productActionpage-productcontent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 2px solid #ebebeb;
+    padding: 40px;
+}
+#productActionpage-price{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: end;
+}
+
+#countbar{
+    background-color: #ebebeb ;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+#countbar > span{
+    font-weight: bold;
+    margin-left: 20px;
+}
+#countbar-in{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+#count-button{
+    border: 1px solid #d3d2d2;
+    height: 30px;
+    display: flex;
+    background-color: white;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100px;
+}
+
+#minus, #plus, #reset{
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff;
+    border: 1px solid #d3d2d2;
+}
+
+#reset{
+    margin-left: 30px;
+}
+#count-price{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#basket{
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+    width: 100%;
+    border-radius: 10px;
+    border: 0;
+    color: #292929;
+    background-color: #fee469;
+    height: 50px;
+}
+
+
+/* guide */
+#product-guide{
+    width: 100%;
+}
+#product-guide a{
+    border: 2px solid #ebebeb;
+    display: block;
+    float: left;
+    width: 33.3%;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    text-decoration: none;
+    color: #505050;
+}
+#product-guide a:nth-child(3){
+    border-right: 0;
+}
+#product-guide a:nth-child(2){
+    border-right: 0;
+    border-left: 0;
+}
+#product-guide a:nth-child(1){
+    border-left: 0;
+}
+
+#product-guide a:link{
+    text-decoration: none;
+}
+#product-guide a:visited{
+    color: #505050;
+}

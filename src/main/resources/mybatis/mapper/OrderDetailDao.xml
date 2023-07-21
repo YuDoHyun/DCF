@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.springboot.dao.IOrderDetailDao">
+	<select id="getOrderidx" resultType="com.study.springboot.dto.OrderDetailDto">
+		select * from dcf_order_detail order by order_idx		
+	</select>
+	<select id="orderProductVeiw" resultType="com.study.springboot.dto.OrderDetailDto">
+	 select * from dcf_order_detail d inner join dcf_product p on d.order_pd_idx = p.product_idx 
+      inner join dcf_order o on o.order_idx = d.order_idx where o.order_user_idx=${param1}
+	</select>	
+</mapper>
